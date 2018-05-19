@@ -100,16 +100,14 @@ document.write("<div class = \"container\">");
 document.write("<header>")
 document.write("<img src='imgs/logo1.jpg'>");
 document.write("<h1 id='title'>" + "My Library" + "</h1>"); 
-document.write("</header>");
-document.write("<div id=\"topTitle\" class=\"row\">");
+document.write("</header>" + "<br>");
 
-
-document.write("</div>" + "<h2 class='text-danger'>" + "Movies" + "</h2>" + "<hr>");
+document.write("</div>" + "<h2 class='text-danger text-center' style='font-weight: bold;'> " + "Movies" + "</h2>" + "<hr>");
 document.write("<div id=\"mov\" class=\"row\">");
 
 for (var i = 0; i < movies.length; i++) {
     document.write("<div class=\"col-lg-4 col-md-6 col-sm-5\">");
-    document.write("<div class=\"vid\">");
+    document.write('<div class="vid">');
     document.write('<img src="' + movies[i].img + '" >');
     document.write('<br>' +"<b>" + "Title: "  + movies[i].Title + "<b>"+ "<br>");
     document.write("Rating: ");
@@ -117,13 +115,13 @@ for (var i = 0; i < movies.length; i++) {
         document.write("<span>" + '&starf;' + "</span>");
     }
 
-        document.write("<br>" +"<div class=\"popup\">" + "<button class='action'>" + "details" + "</button>" + "</div>" +"</div>" +"</div>");
+    document.write("<br>" +"<div class=\"popup\">" + "<button  type='button' class='btn btn-default' data-toggle='modal' data-target='#exampleModalCenter'>" +"details" + "</button>" + "</div>" +"</div>" +"</div>");
+        
 }
 
-document.write("</div>" +"<h2 class='text-danger'>" + "Books" + "</h2>" +"<hr>" +"<div id=\"book\" class=\"row\">");
+document.write("</div>" +"<h2 class='text-danger text-center'>" + "Books" + "</h2>" +"<hr>" +"<div id=\"book\" class=\"row\">");
 
 for (var i = 0; i < books.length; i++) {
-
     document.write("<div class=\"col-lg-4 col-md-6 col-sm-5\">");
     document.write("<div class=\"vid\">");
     document.write('<img src="' + books[i].img + '">' + '<br>');
@@ -131,12 +129,15 @@ for (var i = 0; i < books.length; i++) {
     document.write("Rating: ");
     for (j = 0; j < books[i].Rating; j++) {
         document.write("<span>" + '&starf;' + "</span>");
-    }
-    document.write("<br></br>" +"<div class=\"popup\">" +"<label>"+"Details"+"</label>" +"</div>" +"</div>" +"</div>");
+    } 
+
+   
+
+    document.write("<br>" +"<div class=\"popup\">" + "<button  type='button' class='btn btn-default' data-toggle='modal' data-target='#exampleModalCenter'>" +"details" + "</button>" + "</div>" +"</div>" +"</div>");
 }
 
-document.write("</div>" +"<h2 class='text-danger'>" + "Music" + "</h2>" +"<hr>" +"<div id=\"mus\" class=\"row\">");
-
+document.write("</div>" +"<h2 class='text-danger text-center'>" + "Music" + "</h2>" +"<hr>" +"<div id=\"mus\" class=\"row\">");
+var h=0;
 for (var i = 0; i < Music.length; i++) {
 
     document.write("<div class=\"col-lg-4 col-md-6 col-sm-5\">");
@@ -147,44 +148,63 @@ for (var i = 0; i < Music.length; i++) {
     for (j = 0; j < Music[i].Rating; j++) {
         document.write("<span>" + '&starf;' + "</span>");
     }
-    document.write("<br></br>" +"<div class=\"popup\">" +"<label>"+"Details"+"</label>" +"</div>" +"</div>" +"</div>");
+    document.write("<br>" +"<div class=\"popup\">" + "<button  type='button' class='btn btn-default' data-toggle='modal' data-target='#modal '>" +h+"details" + "</button>" + "</div>" +"</div>" +"</div>");
+    document.write('<div class="modal fade" id="modal"' +h+'tabindex="-1" role="dialog" aria-labelledby="label"'+h+' aria-hidden="true">' +
+  '<div class="modal-dialog modal-dialog-centered" role="document">' +
+    '<div class="modal-content">'+
+      '<div class="modal-header">'+
+        '<h5 class="modal-title" id="label"'+h+'>Modal title</h5>'+
+        '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'+
+          '<span aria-hidden="true">&times;</span>'+
+        '</button>'+
+      '</div>'+
+      '<div class="modal-body">'+
+      '<img src="' + Music[i].img + '">'+
+      '<p>'+ Music[i].Description+ '</p>'+
+      '</div>'+
+      '<div class="modal-footer">'+
+        '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'+
+        '<button type="button" class="btn btn-primary">Save changes</button>'+
+      '</div>'+
+    '</div>'+
+  '</div>'+
+'</div>');
+h++;
+
 }
-document.write("</div>" +"</div>");
+        document.write("</div>" +"</div>");
+        document.write("<div class = \"container\">");
+        document.write('<h1 class="text-primary text-center">Media Adding Form </h1>')
+        document.write('<div class="form-row">' +
+                    '<div class="form-group col-md-6">'+
+                    '<label for="inputEmail4">Title</label>'+
+                    '<input class="form-control" id="title1" placeholder="type your media title"></div>'+
+                    '<div class="form-group col-md-6">'+
+                    '<label for="inputPassword4">Author</label>'+ 
+                    '<input  class="form-control" id="author" placeholder="type youe media author">'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="form-group">'+
+                    '<label for="inputAddress">Publisher</label>'+
+                    '<input type="text" class="form-control" id="publisher" placeholder="type your media publisher">'+
+                    '</div>'+
+                    '<div class="form-group">'+
+                    '<label for="inputAddress2">Genre</label>'+
+                    '<input type="text" class="form-control" id="genre" placeholder="type your media genre ">'+
+                    '</div>'+
+                    '<div class="form-row">'+
+                    '<div class="form-group col-md-12">'+
+                    '<label for="inputCity">Image URL</label>'+
+                    '<input class="form-control" id="img" placeholder="Your media image adress">'+
+                    '</div></div>' +
+                    '<button type="submit" class="btn btn-primary">Add</button>');
+        document.write('</div>');   
 
 
-document.write('<div class="form-row">' +
-                  '<div class="form-group col-md-6">'+
-                    '<label for="inputEmail4">Email</label>'+
-                   '<input type="email" class="form-control" id="inputEmail4" placeholder="Email"></div>'+
-                  '<div class="form-group col-md-6">'+
-                    '<label for="inputPassword4">Password</label>'+ 
-                    '<input type="password" class="form-control" id="inputPassword4" placeholder="Password">'+
-                  '</div>'+
-                '</div>'+
-                '<div class="form-group">'+
-                  '<label for="inputAddress">Address</label>'+
-                  '<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">'+
-                '</div>'+
-                '<div class="form-group">'+
-                  '<label for="inputAddress2">Address 2</label>'+
-                  '<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">'+
-                '</div>'+
-                '<div class="form-row">'+
-                  '<div class="form-group col-md-6">'+
-                    '<label for="inputCity">City</label>'+
-                    '<input type="text" class="form-control" id="inputCity">'+
-                  '</div>'+
-                  '<div class="form-group col-md-4">'+
-                    '<label for="inputState">State</label>'+
-                    '<select id="inputState" class="form-control">'+
-                      '<option selected>Choose...</option>'+
-                      '<option>...</option>'+
-                    '</select>'+
-                  '</div>'+
-                  '<div class="form-group col-md-2">'+
-                    '<label for="inputZip">Zip</label>'+
-                   '<input type="text" class="form-control" id="inputZip">'+
-                  '</div>'+
-                '</div>'+
-                
-                '<button type="submit" class="btn btn-primary">Sign in</button>');
+function add(){
+var a = document.getElementById('title1').value;
+var b = document.getElementById('author').value;
+var c = document.getElementById('publisher').value;
+var d = document.getElementById('genre').value;
+var e = document.getElementById('img').value;
+}

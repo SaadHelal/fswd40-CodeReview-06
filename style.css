@@ -10,16 +10,11 @@ header{
 
 header img{
 	float: left;
-
-
-}
-
-header h1{
-
 }
  #title{
 	margin-top: 70px;
 	 color: red;
+	 font-size: 90px;
 
  }
 
@@ -45,18 +40,9 @@ body {
 	font-family: 'Palatino', 'Arial', sans-serif;
 }
 
-/*div[class*="col"] {
-    height: 400px;
-    background-color:#333333;
-}*/
-
-.container {
-	background-color: grey;
-}
-
 #mov {
 	padding: 2em;
-	margin-top: 50px;
+
 }
 
 #book {
@@ -69,8 +55,8 @@ body {
 
 .vid {
 	padding: 5px;
-	background:#F6F6F5;
-	height: 350px;
+	background:#9E9E9E;
+	height: 450px;
 	margin-top: 1.7em;
 	padding-bottom: 20px;
 	border-radius: 30px;
@@ -78,8 +64,8 @@ body {
 }
 
 img {
-	height: 200px;
-	width: 200px;
+	height: 300px;
+	width: 300px;
 	border-radius: 30px;
 }
 
@@ -89,8 +75,4 @@ span {
 }
 label {
 	cursor: pointer;
-}
-
-#form{
-	background-color: white;
 }
